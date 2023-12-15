@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^11.1.0",
+    "commander": "^10.0.1",
     "config": "^3.3.9",
     "pg": "^8.11.3"
   }
