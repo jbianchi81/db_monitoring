@@ -1,4 +1,3 @@
-const program = require('commander');
 const internal = {}
 const {Pool} = require('pg')
 const config = require('config')
@@ -49,19 +48,6 @@ internal.logSessions = function () {
     })
   }
 
-const default_interval = (config.log_sessions && config.log_sessions.interval) ? config.log_sessions.interval : 5000
-
-program
-.version('0.0.1')
-.description('log database usage (number of sessions) at interval')
-
-program.command('run')
-  .argument('[interval]','time interval in milliseconds')
-  .action((interval) => {
-      interval = interval ?? default_interval
-      setInterval(internal.logSessions,interval)  
-  })
-
-program.parse()
+internal.default_interval = (config.log_sessions && config.log_sessions.interval) ? config.log_sessions.interval : 5000
 
 module.exports = internal
